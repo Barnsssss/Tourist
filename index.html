@@ -42,21 +42,68 @@
     .navbar h2 { font-size: 20px; margin-bottom: 20px; white-space: nowrap; opacity: 0; transition: opacity 0.3s ease; }
     .navbar:hover h2 { opacity: 1; }
     .navbar ul { list-style: none; padding: 0; }
-    .navbar ul li { margin: 15px 0; white-space: nowrap; }
-    .navbar ul li a {
-      text-decoration: none; color: white;
-      transition: color 0.3s, opacity 0.3s;
-      opacity: 0; position: relative;
-      padding-bottom: 4px; font-size: 14px;
-      margin-bottom: 6px;
-    }
-    .navbar:hover ~ .main-wrapper, .navbar:hover ~ footer { margin-left: 150px; }
-    .navbar:hover ul li a { opacity: 1; }
-    .navbar ul li a.active::after {
-      content: ""; position: absolute; left: 0; bottom: -3px;
-      width: 100%; height: 2px; background: #00aced;
-    }
-    .navbar ul li a:hover { color: #00aced; }
+
+	.navbar ul li {
+	  margin: 15px 0;
+	  white-space: nowrap;
+	  padding: 10px 0;
+	  transition: background 0.3s, border-color 0.3s;
+	  border-top: 1px solid transparent;
+	  border-bottom: 1px solid transparent;
+	}
+
+	.navbar:hover ~ .main-wrapper, .navbar:hover ~ footer { margin-left: 150px; }
+	.navbar ul li a {
+	  text-decoration: none;
+	  color: white;
+	  opacity: 0; 
+	  position: relative;
+	  font-size: 17px;
+	  display: block; 
+	  font-weight: 500;
+	  transition: opacity 0.3s ease, color 0.3s ease;
+	  z-index: 2;
+	  padding: 5px 15px;
+	}
+
+
+	.navbar ul:hover li a {
+	  opacity: 1;
+	}
+
+	.navbar ul li a::before,
+	.navbar ul li a::after {
+	  content: "";
+	  position: absolute;
+	  left: 0;
+	  width: 100%;
+	  height: 2px;
+	  background: white; 
+	  border-radius: 2px;
+	  opacity: 0;
+	  transform: scaleX(0);
+	  transition: transform 0.3s ease, opacity 0.3s ease;
+	  z-index: 1; 
+	}
+
+
+	.navbar ul li a::before {
+	  top: -15px;
+	  transform-origin: left;
+	}
+
+	.navbar ul li a::after {
+	  bottom: -15px;
+	  transform-origin: right;
+	}
+
+	.navbar ul li a:hover::before,
+	.navbar ul li a:hover::after,
+	.navbar ul li a.active::before,
+	.navbar ul li a.active::after {
+	  opacity: 1;
+	  transform: scaleX(1);
+	}
 
     .hero {
       position: relative; text-align: center; height: 100vh;
@@ -442,11 +489,11 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#history">History</a></li>
-      <li><a href="#spot-1">Antipolo Cathedral</a></li>
-      <li><a href="#spot-2">Pinto Art Museum</a></li>
-      <li><a href="#spot-3">Hinulugang Tak-tak</a></li>
+      <li><a href="#spot-1">Antipolo<br> Cathedral</a></li>
+      <li><a href="#spot-2">Pinto Art <br>Museum</a></li>
+      <li><a href="#spot-3">Hinulugang <br>Tak-tak</a></li>
       <li><a href="#spot-4">Cloud 9</a></li>
-      <li><a href="#spot-5">Caza Peregrine Resort & <br> Restaurant</a></li>
+      <li><a href="#spot-5">Caza Peregrine <br> Resort &  Restaurant</a></li>
       <li><a href="#about">About us</a></li>
       <li><a href="#contact">Message Us</a></li>
     </ul>
